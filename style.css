@@ -85,29 +85,88 @@ body {
 
  /* 見出し */
  h2 {
-   margin: 40px 0 0 0;
- }
- 
- h2::after {
-   content: url("images/line.png");
-   margin-left: 10px;
- }
- 
- h3 {
-   font-size: 27px;
- }
+  margin: 40px 0 0 0;
+}
 
- #mission-flex {
-  display: flex;
-  gap: 20px;
+h2::after {
+  content: url("images/line.png");
+  margin-left: 10px;
+}
+
+h3 {
+  font-size: 27px;
+}
+
+#mission-flex {
+ display: flex;
+ gap: 20px;
 }
 
 .mission-item {
-  flex: 1;
+ flex: 1;
 }
 
 #mission-photo, #s2dgs {
+ width: 100%;
+}
+
+/* ミッション */
+#mission {
+  margin: 80px auto 80px auto;
+}
+
+#mission-flex {
+  display: flex;
+}
+
+#mission-flex > div {
+  width: 50%;
+  margin: 20px;
+}
+
+#mission-photo {
   width: 100%;
 }
 
+#s2dgs {
+  margin-top: 50px;
+  width: 100%;
+}
 
+ /* プロダクト */
+ #product {
+   background-color: #fafafa;
+   margin: 80px 0 80px 0;
+   padding: 10px 40px 0px 40px;
+ }
+ 
+ /* 外枠 */
+ #product .product-flex {
+   margin-top: 40px;
+   display: flex;
+ }
+ 
+ /* 左のカラム */
+ #product-left {
+   width: 50%;
+   margin-right: 20px;
+ }
+ 
+ /* 右のカラム */
+ #product-right {
+   width: 50%;
+   margin-left: 20px;
+   margin-top: 80px;
+ }
+ 
+ /* 画像＋説明の枠 */
+ #product-left > div {
+   position: relative;
+   height: 480px;
+   margin-right: 20px;
+ }
+ #product-right > div {
+   position: relative;
+   height: 480px;
+   margin-left: 20px;
+ }
