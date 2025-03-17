@@ -1,105 +1,172 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SocialTech</title>
-    <meta charset="utf-8">
-    <meta name="description" content="SocialTechはEdTech業界のリーディングカンパニーを目指します。">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- ヘッダー -->
-    <header> 
-        <!-- ロゴ -->  
-        <a href="index.html" id="logo"><img src="images/logo.png" alt="トップページに戻る"></a>
+/* PC、スマホ共通スタイル */
+* {
+    box-sizing: border-box;
+  }
+  
+  p {
+    font-size: 15px;
+  }
+  
+body {
+    max-width: 1080px;
+    margin: 0 auto 0 auto;
+    font-family: "Source Sans Pro", "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif;
+  }
 
-        <!-- PC用ナビゲーション --> 
-        <nav id="nav-pc">
-            <ul>
-                <li><a href="mission.html">MISSION</a></li>
-                <li><a href="product.html">PRODUCT</a></li>
-                <li><a href="index.html#aboutus">ABOUT US</a></li>
-                <li><a href="index.html#vision">VISION</a></li>
-                <li><a href="index.html#company">COMPANY</a></li>
-                <li><a href="index.html#contact">CONTACT</a></li>
-            </ul>
-        </nav> 
-    </header>
-      <main>
-      <article>
-        <!-- メインビジュアル -->
-        <section id="main-visual">
-          <div id="main-message">
-            <h1>WORLD PEACE</h1>
-            <p>IT教育で世界平和を実現する</p>
-          </div>
-          <img src="images/index/index-main.png" alt="PCの周りに集まる多国籍の仲間たち">
-        </section>
-        <!--ミッション-->
-        <section id="mission">
-          <h2 class="index-h2">MISSION</h2>
-          <div id="mission-flex">
-            <div class="mission-item">
-              <img id="mission-photo" src="images/index/index-mission.png" alt="屋外のベンチで写真を撮影する多国籍の仲間たち">
-              <h3>世界平和の実現</h3>
-              <p>人類の悲願である世界平和。世界平和を脅かす様々な社会問題を解決するためには、イノベーションをどんどん起こしていく必要があります。SocialTechは、プログラミング教育を通してイノベーターを輩出することで、世界平和という大きなテーマに挑んでいきます。</p>
-            </div>
-            <div class="mission-item">
-              <img id="s2dgs" src="images/index/s2dgs.png" alt="s2dgs">
-              <h3>S2DGsの実現</h3>
-              <p>国連が掲げる「Sustainable Development Goals（持続可能な開発目標）」に含まれる17つのグローバル目標のうち、以下の5つの目標の実現をミッションとしてサービスを展開しています。</p>
-             <a href="mission.html"><img src="images/button-more.png" alt="もっとみる"></a>
-            </div>
-          </div>
-        </section>
-      <!-- プロダクト -->
-       <section id="product">
-        <h2 class="index-h2">PLODUCT</h2>
-         <div class="product-flix">
-          <div id="product-left">
-             <div>
-              <img class="product-photo" src="images/index/index-mantoman.png" alt="PCでコードを書く男性">
-              <div class="produact-explain">
-                <span>MAN TO MAN</span>
-                <h3>プログラミング教育</h3>
-                <p>2013年より日本で唯一の専属講師によるマンツーマンのプログラミングレッスンを開始。AI/人工知能やウェブデザインの学習も可能です。</p>
-              </div>
-             </div>
-        　　　<div>
-          　　　<img class="product-photo" src="images/index/index-career.png" alt="笑顔で話し合う２人の男性">
-               <div class="produact-explain">
-                 <span>CAREER</span>
-                 <h3>人材派遣事業</h3>
-                 <p>エンジニアへの転職に特化した履歴書や職務経歴書のアドバイスや面接対策を行い、豊富な求人の中から最適なキャリア選択を支援します。</p>
-               </div>
-        　　　</div>
-        <div id="product-right">
-          <div>
-            <img class="product-photo" src="images/index/index-media.png" alt="スマートフォンを操作する人">
-            <div class="product-explain">
-              <span>MEDIA</span>
-              <h3>プログラミング学習メディア</h3>
-              <p>月間200万人に読まれる日本最大級のプログラミング学習サイト「SocialTech Blog」やYouTubeチャネルにて学習情報を発信しています。</p>
-            </div>
-          </div>
-          <div>
-            <img class="product-photo" src="images/index/index-b2b.png" alt="講演中の男性とそれを聴く人々">
-            <div class="product-explain">
-              <span>B2B</span>
-              <h3>法人研修事業</h3>
-              <p>社員のスキルアップ・資格取得・福利厚生を目的としたプログラミング法人研修。貴社の事業モデルに合わせた研修内容の提案を致します。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="product-more">
-        <a href="product.html">
-          <img src="images/button-more.png" alt="もっとみる">
-        </a>
-      </div>
-    </section>
-  </article>
-</main>
-</body>
+/* ヘッダー */
+ header {
+ display: flex;
+ justify-content: space-between;
+  }
 
-</html>
+  /* ナビゲーションのレイアウト　*/
+  #nav-pc {
+ font-size: 14px;
+  }
+  
+  #nav-pc ul {
+ display: flex;
+ padding-left: 0;
+  }
+
+  
+  #nav-pc li {
+    list-style: none;
+  }
+  
+  /* ナビゲーションのリンクの装飾設定 */
+  #nav-pc a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: #0d0d0d;
+  }
+  
+  #nav-pc a:hover {
+    text-decoration: underline;
+  }
+
+  /* メインビジュアル */
+#main-visual {
+  position: relative;
+  height: 400px;
+}
+
+#main-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #2710d5;
+  color: #ffffff;
+  border-radius: 0 0 476px 0;
+  max-width: 620px;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+}
+
+#main-message > h1 {
+  font-size: 60px;
+  margin: 100px 0 0 50px;
+}
+
+#main-message > p {
+  font-size: 28px;
+  margin: 0 0 0 50px;
+}
+
+#main-visual > img {
+  max-width: 620px;
+  border-radius: 476px 0 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+ /* 見出し */
+ h2 {
+  margin: 40px 0 0 0;
+}
+
+h2::after {
+  content: url("images/line.png");
+  margin-left: 10px;
+}
+
+h3 {
+  font-size: 27px;
+}
+
+#mission-flex {
+ display: flex;
+ gap: 20px;
+}
+
+.mission-item {
+ flex: 1;
+}
+
+#mission-photo, #s2dgs {
+ width: 100%;
+}
+
+/* ミッション */
+#mission {
+  margin: 80px auto 80px auto;
+}
+
+#mission-flex {
+  display: flex;
+}
+
+#mission-flex > div {
+  width: 50%;
+  margin: 20px;
+}
+
+#mission-photo {
+  width: 100%;
+}
+
+#s2dgs {
+  margin-top: 50px;
+  width: 100%;
+}
+
+ /* プロダクト */
+ #product {
+   background-color: #fafafa;
+   margin: 80px 0 80px 0;
+   padding: 10px 40px 0px 40px;
+ }
+ 
+ /* 外枠 */
+ #product .product-flex {
+   margin-top: 40px;
+   display: flex;
+ }
+ 
+ /* 左のカラム */
+ #product-left {
+   width: 50%;
+   margin-right: 20px;
+ }
+ 
+ /* 右のカラム */
+ #product-right {
+   width: 50%;
+   margin-left: 20px;
+   margin-top: 80px;
+ }
+ 
+ /* 画像＋説明の枠 */
+ #product-left > div {
+   position: relative;
+   height: 480px;
+   margin-right: 20px;
+ }
+ #product-right > div {
+   position: relative;
+   height: 480px;
+   margin-left: 20px;
+ }
