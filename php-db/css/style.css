@@ -1,0 +1,68 @@
+/* select.php 用スタイル */
+body {
+    margin: 0;
+    padding: 1rem;
+  }
+  
+  table {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  
+  table tr {
+    border-bottom: solid 1px #d9d9d9;
+  }
+  
+  table tr:first-child {
+    border-bottom: solid 3px #d9d9d9;
+  }
+  
+  table th,
+  table td {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  
+  /* insert.php */
+/* タイトルと説明文 */
+h1,
+p {
+  text-align: center;
+}
+
+/* フォーム全体を中央揃えにする */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 入力欄を中央に寄せる */
+  margin-top: 2rem;
+}
+
+/* 各入力項目（ラベル＋入力欄）のグループ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 300px; /* 幅を揃える */
+}
+
+/* ボタンもフォームと同じ幅で中央に */
+form button {
+  width: 300px;
+  margin-top: 1rem;
+}
+
+/* ラベルにちょっと余白 */
+form label {
+  margin-top: 0.75rem;
+}
+
+/* 「必須」マークの色 */
+label span,
+.required {
+  color: red;
+}

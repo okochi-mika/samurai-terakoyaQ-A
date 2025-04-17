@@ -1,0 +1,45 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  form label,
+  form input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  form label {
+    margin-top: 0.75rem;
+  }
+  
+  label span {
+    color: red;
+  }
+
+.submit-btn {
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 1.5rem;
+    align-self: center;
+    
+  }
+  
+  
+  button.submit-btn {
+    width: auto !important;
+  }
+  
+ 
