@@ -1,45 +1,60 @@
-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  
-  form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-  
-  form label,
-  form input {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  form label {
-    margin-top: 0.75rem;
-  }
-  
-  label span {
-    color: red;
-  }
+/* select.php */
+table {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
 
-.submit-btn {
-    width: auto;
-    padding: 10px 20px;
-    margin-top: 1.5rem;
-    align-self: center;
-    
-  }
-  
-  
-  button.submit-btn {
-    width: auto !important;
-  }
-  
- 
+table tr {
+  border-bottom: solid 1px #d9d9d9;
+}
+
+table tr:first-child {
+  border-bottom: solid 3px #d9d9d9;
+}
+
+table th,
+table td {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* insert.php */
+h1,
+p {
+  text-align: center;
+}
+
+form {
+  width: 100%;             /* h1と同じ横幅（bodyいっぱい）にしたいなら */
+  max-width: 600px;        /* 任意の最大幅（例：600px）を設定 */
+  margin: 0 auto;          /* 中央寄せ */
+  padding: 0 1rem;         /* スマホで余白を持たせる */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  width: 100%; /* 各フォーム要素の幅をフォームの幅に合わせる */
+}
+
+form label {
+  margin-top: 0.75rem;
+}
+
+label span {
+  color: red;
+}
+
+
+input, button {
+  width: 100%; /* 入力フィールドの幅を100%にする */
+  box-sizing: border-box; /* padding, borderを含めた幅の計算 */
+}

@@ -26,43 +26,40 @@ body {
     text-align: center;
   }
   
-  
-  /* insert.php */
-/* タイトルと説明文 */
+/* insert.php */
 h1,
 p {
   text-align: center;
 }
 
-/* フォーム全体を中央揃えにする */
 form {
+  width: 100%;             /* h1と同じ横幅（bodyいっぱい）にしたいなら */
+  max-width: 600px;        /* 任意の最大幅（例：600px）を設定 */
+  margin: 0 auto;          /* 中央寄せ */
+  padding: 0 1rem;         /* スマホで余白を持たせる */
   display: flex;
   flex-direction: column;
-  align-items: center; /* 入力欄を中央に寄せる */
-  margin-top: 2rem;
+  align-items: center;
 }
 
-/* 各入力項目（ラベル＋入力欄）のグループ */
-.form-group {
+
+form div {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-  width: 300px; /* 幅を揃える */
+  margin-bottom: 1.5rem;
+  width: 100%; /* 各フォーム要素の幅をフォームの幅に合わせる */
 }
 
-/* ボタンもフォームと同じ幅で中央に */
-form button {
-  width: 300px;
-  margin-top: 1rem;
-}
-
-/* ラベルにちょっと余白 */
 form label {
   margin-top: 0.75rem;
 }
 
-/* 「必須」マークの色 */
-label span,
-.required {
+label span {
   color: red;
+}
+
+
+input, button {
+  width: 100%; /* 入力フィールドの幅を100%にする */
+  box-sizing: border-box; /* padding, borderを含めた幅の計算 */
 }

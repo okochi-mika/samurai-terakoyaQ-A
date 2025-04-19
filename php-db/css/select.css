@@ -1,45 +1,57 @@
-/* css/style.css */
-
-table {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    table-layout: fixed;
-    border-collapse: collapse;
-    /* border: 1px solid red; ← 確認用なら消してOK */
-  }
-  
-  table tr {
-    border-bottom: solid 1px #d9d9d9;
-  }
-  
-  table th,
-  table td {
-    padding: 1rem;
-    text-align: center;
-  }
-  
-
-
-  /* select.php */
+/* select.php */
 table {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
   table-layout: fixed;
   border-collapse: collapse;
- }
- 
- table tr {
+}
+
+table tr {
   border-bottom: solid 1px #d9d9d9;
- }
- 
- table tr:first-child {
+}
+
+table tr:first-child {
   border-bottom: solid 3px #d9d9d9;
- }
- 
- table th,
- table td {
+}
+
+table th,
+table td {
   padding: 1rem;
   text-align: center;
- }
+}
+
+/* insert.php */
+h1,
+p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%; /* フォーム全体の幅を指定 */
+  max-width: 400px; /* 最大幅を指定してレスポンシブ対応 */
+  margin: 0 auto; /* 中央寄せ */
+}
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  width: 100; /* 各フォーム要素の幅をフォームの幅に合わせる */
+}
+
+form label {
+  margin-top: 0.75rem;
+}
+
+label span {
+  color: red;
+}
+
+
+input, button {
+  width: 100%; /* 入力フィールドの幅を100%にする */
+  box-sizing: border-box; /* padding, borderを含めた幅の計算 */
+}

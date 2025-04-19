@@ -5,12 +5,27 @@ $password = 'root';
 
 try {
     $pdo = new PDO($dsn, $user, $password);
-    // usersテーブルからnameカラムとfuriganaカラムのデータを取得するためのSQL文を変数$sqlに代入する
-    $sql = 'SELECT name, furigana FROM users';
 
+      // keywordパラメータの値が存在すれば（「検索」ボタンを押したとき）、その値を変数$keywordに代入する    
+      if (isset($_GET['keyword'])) {
+        $keyword = $_GET['keyword'];
+    } else {
+        $keyword = NULL;
+    }
+
+    // 動的に変わる値をプレースホルダに置き換えたSELECT文をあらかじめ用意する
+    $sql = 'SELECT name, furigana FROM users WHERE furigana LIKE :keyword';
+    $stmt = $pdo->prepare($sql);
+
+    // SQLのLIKE句で使うため、変数$keyword（検索ワード）の前後を%で囲む（部分一致）
+    // 補足：partial match＝部分一致
+    $partial_match = "%{$keyword}%";
+
+    // bindValue()メソッドを使って実際の値をプレースホルダにバインドする（割り当てる）
+    $stmt->bindValue(':keyword', $partial_match, PDO::PARAM_STR);
 
     // SQL文を実行する
-    $stmt = $pdo->query($sql);
+    $stmt->execute();
 
     // SQL文の実行結果を配列で取得する
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
