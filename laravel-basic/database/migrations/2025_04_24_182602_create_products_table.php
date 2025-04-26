@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            // vendor_codeカラムを設定する
-            $table->integer('vendor_code')->nullable();
-            // vendor_codeカラムに外部キー制約を付与する（参照先はvendorsテーブルのvendor_codeカラムにする）
-            $table->foreign('vendor_code')->references('vendor_code')->on('vendors');
+        Schema::create('vendors', function (Blueprint $table) {
+            $table->id();
+            $table->integer('vendor_code')->unique();
+            $table->string('vendor_name');
+            $table->timestamps();
         });
     }
 
@@ -24,11 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            // ロールバック時にvendor_codeカラムの外部キー制約を削除する
-            $table->dropForeign(['vendor_code']);
-            // ロールバック時にvendor_codeカラムを削除する
-            $table->dropColumn('vendor_code');
-        });
+        Schema::dropIfExists('vendors');
     }
 };
