@@ -23,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('products_vendor_code_foreign');  // 外部キーの名前を明示的に指定
+            $table->dropForeign('products_vendor_code_foreign'); 
             $table->dropColumn('vendor_code');
         });
     }
