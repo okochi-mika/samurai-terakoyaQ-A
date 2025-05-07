@@ -42,6 +42,16 @@ class RequestController extends Controller
             'ip'
         ];
 
-        return view('requests.confirm', compact($variables));
+        return view('requests.confirm', [
+            'user_name' => $user_name,
+            'user_email' => $user_email,
+            'user_gender' => $user_gender,
+            'category' => $category,
+            'message' => $message,
+            'method' => $method,
+            'path' => $path,
+            'url' => $url,
+            'ip' => $ip
+        ]);
     }    
 }
