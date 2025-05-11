@@ -3,47 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post; // Postモデルを使う
+use App\Models\Post; // Postモデルを使うための宣言
 
 class PostController extends Controller
 {
-    // 投稿作成フォームを表示するアクション
-    public function create()
-    {
-        return view('posts.create');
-    }
-
-    // 投稿データを保存するアクション
-    public function store(Request $request)
-    {
-        // バリデーション
-        $validated = $request->validate([
-            'title' => 'required|max:20',
-            'content' => 'required|max:200',
-        ]);
-
-        // postsテーブルに保存
-        Post::create([
-            'title' => $validated['title'],
-            'content' => $validated['content'],
-        ]);
-
-        // 投稿一覧ページへリダイレクト
-        return redirect('/posts');
-    }
-
-    // 投稿一覧ページを表示するアクション
+    // 投稿一覧を表示するアクション
     public function index()
     {
-        // 投稿データを取得
-        $posts = Post::all();
+        // postsテーブルからすべてのデータを取得（クエリビルダ）
+        $posts = DB::table('posts')->get();
 
+        // ビューにデータを渡す
+        return view('posts.index', ['posts' => $posts]);
+    }
 
-    // デバッグ: 取得したデータをログに出力する
-    \Log::info($posts);
-    
+    // 投稿の詳細を表示するアクション
+    public function show($id)
+    {
+        // Eloquent ORMを使って、idが一致する投稿を取得
+        $post = Post::find($id);
+
+        // 投稿が見つからない場合は404エラーを返す
+        if (!$post) {
+            abort(404, '投稿が見つかりません');
+        }
 
         // ビューにデータを渡して表示
-        return view('posts.index', compact('posts'));
+        return view('posts.show', ['post' => $post]);
     }
 }

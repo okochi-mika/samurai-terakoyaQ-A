@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vendor;
+use App\Models\Product;
 
 class VendorController extends Controller {
     public function show($id) {
