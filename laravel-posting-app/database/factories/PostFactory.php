@@ -4,21 +4,12 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
-use Faker\Factory as FakerFactory; // ← 追加
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
 class PostFactory extends Factory
 {
-    protected $faker; // ← 追加
-
-    public function __construct(...$args)
-    {
-        parent::__construct(...$args);
-        $this->faker = FakerFactory::create('ja_JP'); // ← 日本語設定！
-    }
-
     /**
      * Define the model's default state.
      *
@@ -27,9 +18,9 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(),   // 日本語のタイトルに！
-            'content' => $this->faker->paragraph(), // 日本語の段落に！
-            'user_id' => User::inRandomOrder()->first()->id,
+            'user_id' => 1, // usersテーブルにidカラムの値が1のユーザーが存在することが前提
+            'title' => fake()->realText(20, 5),
+            'content' => fake()->realText(200, 5)
         ];
     }
 }
