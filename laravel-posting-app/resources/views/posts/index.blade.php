@@ -30,12 +30,20 @@
             <p>{{ session('flash_message') }}</p>
        @endif
 
+        @if (session('flash_message'))
+            <p>{{ sessoon('flash_message') }}</p>
+        @endif
+
+
+       <a href="{{ route('posts.create') }}">新規投稿</a>
+
        @if($posts->isNotEmpty())
            @foreach($posts as $post)
                <article>
                    <h2>{{ $post->title }}</h2>
                    <p>{{ $post->content }}</p>
                    <a href="{{ route('posts.show', $post) }}">詳細</a>
+                   <a hraf="{{ route('posts.edit', $post) }}">編集</a>
                </article>
            @endforeach
        @else
