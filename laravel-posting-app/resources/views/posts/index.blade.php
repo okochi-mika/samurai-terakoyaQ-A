@@ -22,38 +22,30 @@
            </ul>
        </nav>
    </header>
-
-   <main>
-       <h1>投稿一覧</h1>
-
-       @if (session('flash_message'))
-            <p>{{ session('flash_message') }}</p>
-       @endif
+    <main>
+        <h1>投稿一覧</h1>
 
         @if (session('flash_message'))
-            <p>{{ sessoon('flash_message') }}</p>
+            <p>{{ session('flash_message') }}</p>
         @endif
 
+        @if (session('error_message'))
+            <p>{{ session('error_message') }}</p>
+        @endif
 
-       <a href="{{ route('posts.create') }}">新規投稿</a>
+        <a href="{{ route('posts.create') }}">新規投稿</a>
 
-       @if($posts->isNotEmpty())
-           @foreach($posts as $post)
-               <article>
-                   <h2>{{ $post->title }}</h2>
-                   <p>{{ $post->content }}</p>
-                   <a href="{{ route('posts.show', $post) }}">詳細</a>
-                   <a hraf="{{ route('posts.edit', $post) }}">編集</a>
-               </article>
-           @endforeach
-       @else
-           <p>投稿はありません。</p>
-       @endif
-   </main>
+        @if($posts->isNotEmpty())
+            @foreach($posts as $post)
+                <article>
+                    <h2>{{ $post->title }}</h2>
+                    <p>{{ $post->content }}</p>
+                    <a href="{{ route('posts.show', $post) }}">詳細</a>
+                     <a href="{{ route('posts.edit', $post) }}">編集</a>
+                </article>
+            @endforeach
+        @else
+            <p>投稿はありません。</p>
+        @endif
+    </main>
 
-   <footer>
-       <p>&copy; 投稿アプリ All rights reserved.</p>
-   </footer>
-</body>
-
-</html>

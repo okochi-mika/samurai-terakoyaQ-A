@@ -19,8 +19,8 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => 1, // usersテーブルにidカラムの値が1のユーザーが存在することが前提
-            'title' => fake()->realText(20, 5),
-            'content' => fake()->realText(200, 5)
+            'title' => fake()->realText(20),
+            'content' => fake()->realText(200)
         ];
     }
 }
