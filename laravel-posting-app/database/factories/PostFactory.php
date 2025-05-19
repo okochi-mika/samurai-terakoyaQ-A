@@ -18,7 +18,8 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1, // usersテーブルにidカラムの値が1のユーザーが存在することが前提
+            // 'user_id' => \App\Models\User::factory(), // ← こうすれば自動的にユーザーも一緒に作られる
+            'user_id' => 1, // ← こうすれば自動的にユーザーも一緒に作られる
             'title' => fake()->realText(20),
             'content' => fake()->realText(200)
         ];
