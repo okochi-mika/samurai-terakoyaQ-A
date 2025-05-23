@@ -92,11 +92,12 @@ class PostTest extends TestCase
     // ログイン済みのユーザーは投稿を作成できる
     public function test_user_can_access_posts_store()
     {
-        $user = User::factory()->create();
+        $user = \App\Models\User::factory()->create(); // ←これを最初に追加！
 
         $post = [
             'title' => 'プログラミング学習1日目',
-            'content' => '今日からプログラミング学習開始！頑張るぞ！'
+            'content' => '今日からプログラミング学習開始！頑張るぞ！',
+            'user_id' => $user->id,
         ];
 
         $response = $this->actingAs($user)->post(route('posts.store'), $post);
@@ -191,4 +192,41 @@ class PostTest extends TestCase
         $response->assertRedirect(route('posts.show', $old_post));
     }
 
+    // 未ログインのユーザーは投稿を削除できない
+    public function test_guest_cannot_destroy_post()
+    {
+        $user = User::factory()->create();
+        $post = Post::factory()->create(['user_id' => $user->id]);
+
+        $response = $this->delete(route('posts.destroy', $post));
+
+        $this->assertDatabaseHas('posts', ['id' => $post->id]);
+        $response->assertRedirect(route('login'));
+    }
+
+
+       // ログイン済みのユーザーは他人の投稿を削除できない
+    public function test_user_cannot_destroy_others_post()
+    {
+        $user = User::factory()->create();
+        $other_user = User::factory()->create();
+        $others_post = Post::factory()->create(['user_id' => $other_user->id]);
+
+        $response = $this->actingAs($user)->delete(route('posts.destroy', $others_post));
+
+        $this->assertDatabaseHas('posts', ['id' => $others_post->id]);
+        $response->assertRedirect(route('posts.index'));
+    }
+
+      // ログイン済みのユーザーは自身の投稿を削除できる
+    public function test_user_can_destroy_own_post()
+    {
+        $user = User::factory()->create();
+        $post = Post::factory()->create(['user_id' => $user->id]);
+
+        $response = $this->actingAs($user)->delete(route('posts.destroy', $post));
+
+        $this->assertDatabaseMissing('posts', ['id' => $post->id]);
+        $response->assertRedirect(route('posts.index'));
+    }
 }
