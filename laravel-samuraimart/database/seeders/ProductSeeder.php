@@ -15,6 +15,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory()->count(20)->create();  // 10件のダミーデータを生成
+        Product::factory()->count(20)->create();  // 20件のダミーデータを生成
     }
 }
